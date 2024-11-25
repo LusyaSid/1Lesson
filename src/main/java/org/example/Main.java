@@ -30,7 +30,8 @@ public class Main {
         //Треннадцатый метод
         squareTabl();
         //Четырнадцатый метод
-        lenInitial(10, "Привет");
+        lenInitialString(10, "Привет");
+        lenInitialInt(10, -1);
     }
 
 
@@ -71,7 +72,7 @@ public class Main {
         }
     }
 
-    public static void trueFalse(int a, int b) {
+    public static void trueFalse (int a, int b) {
         int sum = a + b;
         if (sum >= 10 && sum <= 20) {
             System.out.println("true");
@@ -80,7 +81,7 @@ public class Main {
         }
     }
 
-    public static void positiveNegative(int number) {
+    public static void positiveNegative (int number) {
         if (number >=0) {
             System.out.println ("положительное");
         } else {
@@ -89,7 +90,7 @@ public class Main {
 
     }
 
-    public static void trueNegative(int number) {
+    public static void trueNegative (int number) {
         if (number <0) {
             System.out.println ("true");
         }else {
@@ -127,13 +128,14 @@ public class Main {
             }
             System.out.println (code[i]);
         }
+        System.out.println("Задание выполнено");
     }
 
     public static void oneHundred() {
         int [] array = new int [100];
         for (int i = 0; i < array.length; i ++ ) {
             array [i]=i +1;
-            System.out.println (array[i]);
+            System.out.println ("array["+i+"]="+ array[i]);
         }
     }
 
@@ -151,15 +153,16 @@ public class Main {
     public static void squareTabl(){
         int[] [] square = new int [6] [6];
         for (int i = 0; i < square.length; i ++) {
+            square[i][i]= 1;
             for (int j = 0; j < square[i].length; j++) {
-                square[i][i]= 2;
+
                 System.out.print(square[i][j] + " ");
             }
             System.out.println();
         }
     }
 
-    public static void lenInitial (int len, String initialValue) {
+    public static void lenInitialString (int len, String initialValue) {
         String[] value = new String[len];
         for (int i =0; i < len; i++) {
             value[i] = initialValue;
@@ -167,6 +170,16 @@ public class Main {
         }
         System.out.println();
     }
+
+    public static void lenInitialInt(int len, int initialValue) {
+        int[] value = new int [len];
+        for (int i =0; i < len; i++) {
+            value[i] = initialValue;
+            System.out.print(value[i] + "  ");
+        }
+        System.out.println();
+    }
+
 }
 
 
