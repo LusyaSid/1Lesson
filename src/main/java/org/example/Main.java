@@ -39,6 +39,7 @@ public class Main {
         System.out.println("Orange");
         System.out.println("Banana");
         System.out.println("Apple");
+        System.out.println("Первое задание");
     }
 
     public static void checkSumSign() {
@@ -49,6 +50,7 @@ public class Main {
         } else {
             System.out.println("Сумма отрицательная");
         }
+        System.out.println("Второе задание");
     }
 
     public static void printColor() {
@@ -60,6 +62,7 @@ public class Main {
         } else  {
             System.out.println("Зелёный");
         }
+        System.out.println("Третье задание");
     }
 
     public static void compareNumbers() {
@@ -70,6 +73,7 @@ public class Main {
         } else {
             System.out.println ("a<b");
         }
+        System.out.println("Четвёртое задание");
     }
 
     public static void trueFalse (int a, int b) {
@@ -79,6 +83,7 @@ public class Main {
         } else {
             System.out.println("false");
         }
+        System.out.println("Пятое задание");
     }
 
     public static void positiveNegative (int number) {
@@ -87,7 +92,7 @@ public class Main {
         } else {
             System.out.println ("отрицательное");
         }
-
+        System.out.println("Шестое задание");
     }
 
     public static void trueNegative (int number) {
@@ -96,6 +101,7 @@ public class Main {
         }else {
             System.out.println ("false");
         }
+        System.out.println("Седьмое задание");
     }
 
     public static void printStringWords() {
@@ -104,6 +110,7 @@ public class Main {
         for (int i =0; i < number; i ++ ) {
             System.out.println (word);
         }
+        System.out.println("Восьмое задание");
     }
 
     public static void leapYear(int year) {
@@ -116,6 +123,7 @@ public class Main {
         else {
             System.out.println("true");
         }
+        System.out.println("Девятое выполнено");
     }
 
     public static void zeroOne() {
@@ -128,7 +136,7 @@ public class Main {
             }
             System.out.println (code[i]);
         }
-        System.out.println("Задание выполнено");
+        System.out.println("Десятое задание");
     }
 
     public static void oneHundred() {
@@ -137,6 +145,8 @@ public class Main {
             array [i]=i +1;
             System.out.println ("array["+i+"]="+ array[i]);
         }
+        System.out.println("Одиннацатое задание");
+
     }
 
     public static void multiplyByTwo () {
@@ -147,6 +157,7 @@ public class Main {
             }
             System.out.println(nums[i]);
         }
+        System.out.println("Двенадцатое задание");
     }
 
 
@@ -155,11 +166,11 @@ public class Main {
         for (int i = 0; i < square.length; i ++) {
             square[i][i]= 1;
             for (int j = 0; j < square[i].length; j++) {
-
                 System.out.print(square[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println("Тренадцатое задание");
     }
 
     public static void lenInitialString (int len, String initialValue) {
@@ -169,6 +180,7 @@ public class Main {
             System.out.print(value[i] + "  ");
         }
         System.out.println();
+        System.out.println("Четырнадцатое задание");
     }
 
     public static void lenInitialInt(int len, int initialValue) {
@@ -178,8 +190,8 @@ public class Main {
             System.out.print(value[i] + "  ");
         }
         System.out.println();
+        System.out.println("Четырнадцатое задание");
     }
-
 }
 
 
