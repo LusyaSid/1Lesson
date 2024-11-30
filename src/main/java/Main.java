@@ -1,16 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Person person1 = new Person(
-                "Макаров Денис Петрович",
-                "инженер",
-                "Makarov@mail.ru",
-                "+7768543567",
-                5000,
-                28);
+        Person person1 = new Person("Макаров Денис Петрович","инженер","Makarov@mail.ru","+7768543567",50000,28);
         person1.printInfo();
         System.out.println("ДАЛЕЕ МАССИВ");
-
-
 
         Person[] persons = new Person[4];
         persons[0] = new Person("Королёва Светлана Васильевна", "бухгалтер", "Koroleva@mail.com", "+7 734 89 02", 75000, 34);
@@ -22,7 +14,20 @@ public class Main {
 
             person.printInfo();
         }
+
+        Park park = new Park("Сказочная страна","Орша, ул.К.Маркса 1");
+          park.addAttraction("Зиг-заг","14:00-18:00",15);
+          park.addAttraction("Машинки","12:00-18:00",10);
+          park.addAttraction("Красный Пират","14:00-18:00",15);
+        park.display();
+
     }
+
+
+
+
+
+
 
 
 }

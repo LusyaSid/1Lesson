@@ -13,7 +13,7 @@ public class Park {
         this.attractions = new ArrayList<>();
     }
 
-    public void addAttraction(String name, String openingHours, BigDecimal price) {
+    public void addAttraction(String name, String openingHours, int price) {
         attractions.add(new Attraction(name, openingHours, price));
     }
 
@@ -25,13 +25,12 @@ public class Park {
         }
     }
 
-
     public static class Attraction {
         String name;
         String openingHours;
-        BigDecimal price;
+        int price;
 
-        public Attraction(String name, String openingHours, BigDecimal price) {
+        public Attraction(String name, String openingHours, int price) {
             this.name = name;
             this.openingHours = openingHours;
             this.price = price;
@@ -40,19 +39,10 @@ public class Park {
         public void displayInfo() {
             System.out.println("Название атракциона:" + name);
             System.out.println("Время работы:" + openingHours);
-            System.out.println("Стоимость:" + price);
+            System.out.println("Стоимость:" + price + "р");
             System.out.println();
         }
-
     }
-    public static void main(String[] args){
-        Park park=new Park("parkname","minsk");
-        park.addAttraction("1","2",new BigDecimal(3));
-        park.addAttraction("7","99",new BigDecimal(5));
-        park.addAttraction("6","567",new BigDecimal(4));
-        park.display();
-    }
-
 
 }
 

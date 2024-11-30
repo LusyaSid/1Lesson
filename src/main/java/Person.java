@@ -19,7 +19,7 @@ public class Person {
         System.out.println("Должность:"+position);
         System.out.println("Email:"+email);
         System.out.println("Телефон:"+phoneNumber);
-        System.out.println("Зарплата:"+salary);
+        System.out.println("Зарплата:"+salary+"р");
         System.out.println("Возраст:"+age);
         System.out.println();
 
