@@ -1,48 +1,57 @@
 public class Main {
-    public static void main(String[] args) {
-        Dog dog1 = new Dog("Шарик");
-        Cat cat1 = new Cat("Васька");
-        dog1.run(300);
-        dog1.swim(5);
-        cat1.run(150);
-        cat1.swim(5);
+    public static void main(String[] args) throws MyArraySizeException,MyArrayDataException {
+        String[][] array1 = {
+                {"1", "2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "10", "11", "89"},
+                {"13", "14", "15", "16"}
+        };
 
-        Cat[] cats = {new Cat("Пушок"), new Cat("Муська"), new Cat("Рыжик")};
+        String[][] array2 = {
+                {"1", "2", "3", "6"},
+                {"4", "5", "6", "5"},
+                {"7", "8", "R", "4"},
+                {"13", "14", "15", "16"}
+        };
 
-        FoodBowl bowl = new FoodBowl(25);
+        String[][] array3 = {
+                {"1", "2", "3", "6"},
+                {"4", "5", "6", "5"},
+                {"7", "8", "0", "4"},
+        };
 
-        for (Cat cat : cats) {
-            cat.eat(bowl);
-            System.out.println(cat.name + " " + "сытость" + " " + cat.isFull());
-            bowl.addFood(10);
-        }
+        String[][] array4 = {
+                {"1", "500", "3", "4"},
+                {"5", "0", "HELLO", "8"},
+                {"9", "10", "100", "89"},
+                {"13", "14", "15", "16"},
+        };
 
-        for (Cat cat : cats) {
-            cat.eat(bowl);
-            System.out.println(cat.name + " " + "уже сыт" + " " + cat.isFull());
-        }
-        System.out.println();
-        System.out.println("ФИГУРЫ");
-
-
-        Figures circle = new Circle(6, "жёлтый", "оранжевый");
-        Figures rectangle = new Rectangle(5, 3, "зелёный", "красный");
-        Figures triangle = new Triangle(5, 6, 9, "голубой", "синий");
-
-        printFiguresInfo(circle);
-        printFiguresInfo(rectangle);
-        printFiguresInfo(triangle);
+        result(array1);
+        result(array2);
+        result(array3);
+        result(array4);
     }
 
-    private static void printFiguresInfo (Figures figures) {
-        System.out.println("фигура:" +" "+figures.getClass().getSimpleName());
-        System.out.printf("периметр: %.2f%n", figures.calculatePerimeter());
-        System.out.printf("площадь:%.2f%n",  figures.calculateArea());
-        System.out.println("цвет фона" +" "+figures.getColorFill());
-        System.out.println("цвет контура" +" "+figures.getColorBorder());
-
+    public static void result(String[][] array) {
+        try {
+            CorrectArray.correctArraySize(array);
+            int sum= CorrectArray.sumArrayElements(array);
+            System.out.println("сумма элементов:"+sum);
+        } catch (MyArrayDataException | MyArraySizeException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
