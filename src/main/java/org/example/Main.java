@@ -58,7 +58,6 @@ public class Main {
         System.out.println("Пирогова:"+ pirogovaNumbers);
         System.out.println("Краёв:"+ krayevNumbers);
         System.out.println("Иванов:"+ ivanovNumbers);
-
     }
 }
 
