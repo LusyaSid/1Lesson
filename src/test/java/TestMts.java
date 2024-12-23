@@ -22,15 +22,14 @@ public class TestMts{
     public void sometest() {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.mts.by/");
+
         WebElement element=driver.findElement(By.xpath("//div[@id='pay-section']/div/div/div[2]/section/div/h2"));
         String text=element.getText();
+
         Assert.assertEquals(text,"Онлайн пополнение\n" + "без комиссии");
 
-
         driver.quit();
-
     }
-
 }
 
 
