@@ -37,10 +37,7 @@ public class TestFactorial {
             FactorialCalculator.calculateFactorial(input);
         });
         assertEquals(exception.getMessage(), "число не должно быть отрицательным");
-
     }
-
-
 }
 
 
