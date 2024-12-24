@@ -30,6 +30,72 @@ public class TestMts{
 
         driver.quit();
     }
+
+    @Test
+    public void someTest1(){
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.mts.by/");
+        WebElement element= driver.findElement(By.xpath("//img[@alt='Visa']"));
+        String logotip = element.getDomAttribute("alt");
+        Assert.assertEquals(logotip,"Visa");
+        driver.quit();
+    }
+
+    @Test
+    public void someTest2(){
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.mts.by/");
+        WebElement element=driver.findElement(By.xpath("//img[@alt='Verified By Visa']"));
+        String logotip = element.getDomAttribute("alt");
+        Assert.assertEquals(logotip,"Verified By Visa");
+        driver.quit();
+    }
+
+    @Test
+    public void someTest3(){
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.mts.by/");
+        WebElement element=driver.findElement(By.xpath("//img[@alt='MasterCard']"));
+        String logotip = element.getDomAttribute("alt");
+        Assert.assertEquals(logotip,"MasterCard");
+        driver.quit();
+    }
+
+    @Test
+    public void someTest4(){
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.mts.by/");
+        WebElement element=driver.findElement(By.xpath("//img[@alt='MasterCard Secure Code']"));
+        String logotip = element.getDomAttribute("alt");
+        Assert.assertEquals(logotip,"MasterCard Secure Code");
+        driver.quit();
+    }
+
+    @Test
+    public void someTest5(){
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.mts.by/");
+        WebElement element=driver.findElement(By.xpath("//img[@alt='Белкарт']"));
+        String logotip = element.getDomAttribute("alt");
+        Assert.assertEquals(logotip,"Белкарт");
+        driver.quit();
+    }
+
+    @Test
+    public void someTest6(){
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.mts.by/");
+        WebElement element=driver.findElement(By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/a"));
+        element.click();
+        String link= driver.getCurrentUrl();
+        Assert.assertEquals(link,"https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/");
+        driver.quit();
+    }
+
+
+
+
+
 }
 
 
