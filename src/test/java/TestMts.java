@@ -16,11 +16,11 @@ import org.testng.Assert;
 import java.time.Duration;
 
 
-public class TestMts {
+public class TestMts{
     private WebDriver driver;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.mts.by/");
@@ -28,7 +28,7 @@ public class TestMts {
 
 
     @Test
-    public void nameTest() {
+    public void nameTest(){
 
         WebElement element = driver.findElement(By.xpath("//div[@id='pay-section']/div/div/div[2]/section/div/h2"));
         String text = element.getText();
@@ -37,7 +37,7 @@ public class TestMts {
     }
 
     @Test
-    public void VisaTest() {
+    public void VisaTest(){
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='Visa']"));
         String logo = element.getDomAttribute("alt");
@@ -46,7 +46,7 @@ public class TestMts {
     }
 
     @Test
-    public void verifiedByVisaTest() {
+    public void verifiedByVisaTest(){
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='Verified By Visa']"));
         String logo = element.getDomAttribute("alt");
@@ -55,7 +55,7 @@ public class TestMts {
     }
 
     @Test
-    public void masterCardTest() {
+    public void masterCardTest(){
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='MasterCard']"));
         String logo = element.getDomAttribute("alt");
@@ -65,7 +65,7 @@ public class TestMts {
     }
 
     @Test
-    public void masterCardSecureCodeTest() {
+    public void masterCardSecureCodeTest(){
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='MasterCard Secure Code']"));
         String logo = element.getDomAttribute("alt");
@@ -74,7 +74,7 @@ public class TestMts {
     }
 
     @Test
-    public void belcartTest() {
+    public void belcartTest(){
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='Белкарт']"));
         String logo = element.getDomAttribute("alt");
@@ -83,7 +83,7 @@ public class TestMts {
     }
 
     @Test
-    public void linkTest() {
+    public void linkTest(){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement cookiesAgreement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cookie-agree']")));
@@ -101,7 +101,7 @@ public class TestMts {
 
 
     @Test
-    public void buttonContinueTest() {
+    public void buttonContinueTest(){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
@@ -121,7 +121,7 @@ public class TestMts {
     }
 
     @AfterEach
-    public void tearDown() {
+    public void tearDown(){
         driver.quit();
     }
 }
