@@ -1,4 +1,4 @@
-import jdk.jfr.Description;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -6,14 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
-import java.awt.*;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 
 public class TestMts {
@@ -87,11 +85,44 @@ public class TestMts {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.mts.by/");
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement cookiesAgreement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cookie-agree']")));
+        cookiesAgreement.click();
 
         WebElement element = driver.findElement(By.xpath("//div[@class='pay__wrapper']//a"));
         element.click();
+
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlToBe("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/"));
+
         String link = driver.getCurrentUrl();
         Assert.assertEquals(link, "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/");
+        driver.quit();
+
+    }
+
+
+    @Test
+    public void someTest7() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.mts.by/");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        WebElement cookiesAgreement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cookie-agree']")));
+        cookiesAgreement.click();
+
+        WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='connection-phone']")));
+        phoneInput.click();
+        phoneInput.sendKeys("297777777");
+
+        WebElement sumInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='connection-sum']")));
+        sumInput.click();
+        sumInput.sendKeys("55");
+
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pay-connection']/button")));
+        button.click();
+
         driver.quit();
 
     }
