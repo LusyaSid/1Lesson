@@ -108,15 +108,15 @@ public class TestMts{
         WebElement cookiesAgreement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cookie-agree']")));
         cookiesAgreement.click();
 
-        WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='connection-phone']")));
+        WebElement phoneInput = driver.findElement(By.xpath("//*[@id='connection-phone']"));
         phoneInput.click();
         phoneInput.sendKeys("297777777");
 
-        WebElement sumInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='connection-sum']")));
+        WebElement sumInput = driver.findElement(By.xpath("//*[@id='connection-sum']"));
         sumInput.click();
         sumInput.sendKeys("55");
 
-        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pay-connection']/button")));
+        WebElement button = driver.findElement(By.xpath("//*[@id='pay-connection']/button"));
         button.click();
     }
 
