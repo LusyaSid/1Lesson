@@ -28,7 +28,7 @@ public class TestMts {
 
 
     @Test
-    public void sometest1() {
+    public void nameTest() {
 
         WebElement element = driver.findElement(By.xpath("//div[@id='pay-section']/div/div/div[2]/section/div/h2"));
         String text = element.getText();
@@ -37,53 +37,53 @@ public class TestMts {
     }
 
     @Test
-    public void someTest2() {
+    public void VisaTest() {
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='Visa']"));
-        String logotip = element.getDomAttribute("alt");
+        String logo = element.getDomAttribute("alt");
 
-        Assert.assertEquals(logotip, "Visa");
+        Assert.assertEquals(logo, "Visa");
     }
 
     @Test
-    public void someTest3() {
+    public void verifiedByVisaTest() {
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='Verified By Visa']"));
-        String logotip = element.getDomAttribute("alt");
+        String logo = element.getDomAttribute("alt");
 
-        Assert.assertEquals(logotip, "Verified By Visa");
+        Assert.assertEquals(logo, "Verified By Visa");
     }
 
     @Test
-    public void someTest4() {
+    public void masterCardTest() {
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='MasterCard']"));
-        String logotip = element.getDomAttribute("alt");
+        String logo = element.getDomAttribute("alt");
 
-        Assert.assertEquals(logotip, "MasterCard");
+        Assert.assertEquals(logo, "MasterCard");
 
     }
 
     @Test
-    public void someTest5() {
+    public void masterCardSecureCodeTest() {
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='MasterCard Secure Code']"));
-        String logotip = element.getDomAttribute("alt");
+        String logo = element.getDomAttribute("alt");
 
-        Assert.assertEquals(logotip, "MasterCard Secure Code");
+        Assert.assertEquals(logo, "MasterCard Secure Code");
     }
 
     @Test
-    public void someTest6() {
+    public void belcartTest() {
 
         WebElement element = driver.findElement(By.xpath("//img[@alt='Белкарт']"));
-        String logotip = element.getDomAttribute("alt");
+        String logo = element.getDomAttribute("alt");
 
-        Assert.assertEquals(logotip, "Белкарт");
+        Assert.assertEquals(logo, "Белкарт");
     }
 
     @Test
-    public void someTest7() {
+    public void linkTest() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement cookiesAgreement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cookie-agree']")));
@@ -101,7 +101,7 @@ public class TestMts {
 
 
     @Test
-    public void someTest8() {
+    public void buttonContinueTest() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
