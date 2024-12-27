@@ -74,8 +74,6 @@ public class PagePay {
         driver.findElement(logoCardMir).getText();
         return new PagePay(driver);
     }
-
-
 }
 
 
