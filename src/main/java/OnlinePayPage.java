@@ -102,5 +102,5 @@ public class OnlinePayPage{
         driver.findElement(debt).getText();
         return new OnlinePayPage(driver);
     }
-    public LinkPage
+
 }
