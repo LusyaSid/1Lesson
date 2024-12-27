@@ -17,13 +17,29 @@ public class OnlinePayPage{
     By link=By.xpath("//div[@class='pay__wrapper']//a");
     By buttonContinue=By.xpath("//*[@id='pay-connection']/button");
     By cookies=By.xpath("//*[@id='cookie-agree']");
-    By phoneInput=By.xpath("//*[@id='connection-phone']");
+     By phoneInput=By.xpath("//*[@id='connection-phone']");
     By sumInput=By.xpath("//*[@id='connection-sum']");
     By uslugiSvyazi=By.xpath("//p[ text()='Услуги связи']");
     By homeInternet=By.xpath("//p[ text()='Домашний интернет']");
     By rassrochka=By.xpath("//p[ text()='Рассрочка']");
     By debt=By.xpath("//p[ text()='Задолженность']");
-    By typesOfServices=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button");
+    By buttonTypesOfServices=By.xpath("//div[@class='select__wrapper opened']//button");
+    By countryCodeOfUslugiSvyazi=By.xpath("//div[@class='input-wrapper input-wrapper_label-left']//label");
+    By placeholderNumberPhoneOfUslugiSvyazi=By.xpath("//*[@id='connection-phone']");
+    By placeholderSummaOfUslugiSvyazi=By.xpath("//*[@id='connection-sum']");
+    By placeholderEmailOfUslugiSvyazi=By.xpath("//*[@id='connection-email']");
+    By buttonSelectedNow=By.xpath("//button[@class='select__header']//span[@class='select__now']");
+    By countryCodeOfHomeInternet=By.xpath("//*[@id=pay-internet']/div[1]/label");
+    By placeholderNumberPhoneOfHomeInternet=By.xpath("//*[@id='internet-phone']");
+    By placeholderSummaOfHomeInternet=By.xpath("//*[@id='internet-sum']");
+    By placeholderEmailOfHomeInternet=By.xpath("//*[@id='internet-email']");
+    By placeholderAccountNumberOfRassrochka=By.xpath("//*[@id='score-instalment']");
+    By placeholderSummaOfRassrochka=By.xpath("//*[@id='instalment-sum']");
+    By placeholderEmailOfRassrochka=By.xpath("//*[@id='instalment-email']");
+    By placeholderAccountNumberOfDebt=By.xpath("//*[@id='score-arrears']");
+    By placeholderSummaOfDebt=By.xpath("//*[@id='arrears-sum']");
+    By placeholderEmailOfDebt=By.xpath("//*[@id='arrears-email']");
+
 
 
     public void open(){
@@ -80,9 +96,9 @@ public class OnlinePayPage{
         return this;
     }
 
-    public PayPage clickButtonContinue(){
+    public PagePay clickButtonContinue(){
         driver.findElement(buttonContinue).click();
-        return new PayPage(driver);
+        return new PagePay(driver);
     }
 
     public OnlinePayPage getUslugiSvyazi(){
