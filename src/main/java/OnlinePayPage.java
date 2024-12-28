@@ -51,44 +51,45 @@ public class OnlinePayPage{
         driver.get("https://www.mts.by/");
     }
 
-    public OnlinePayPage getNameBlock(){
-        driver.findElement(nameBlock).getText();
-        return new OnlinePayPage(driver);
+    public String getNameBlock(){
+        return driver.findElement(nameBlock).getText();
     }
 
-    public OnlinePayPage getLogoVisa(){
-        driver.findElement(logoVisa).getDomAttribute("alt");
-        return new OnlinePayPage(driver);
+    public String getLogoVisa(){
+        return driver.findElement(logoVisa).getDomAttribute("alt");
     }
 
-    public OnlinePayPage getLogoVerifiedByVisa(){
-        driver.findElement(logoVerifiedByVisa).getDomAttribute("alt");
-        return new OnlinePayPage(driver);
+    public String getLogoVerifiedByVisa(){
+        return driver.findElement(logoVerifiedByVisa).getDomAttribute("alt");
     }
 
-    public OnlinePayPage getLogoMasterCard(){
-        driver.findElement(logoMasterCard).getDomAttribute("alt");
-        return new OnlinePayPage(driver);
+    public String getLogoMasterCard(){
+        return driver.findElement(logoMasterCard).getDomAttribute("alt");
     }
 
-    public OnlinePayPage getLogoMasterCardSecureCode(){
-        driver.findElement(logoMasterCardSecureCode).getDomAttribute("alt");
-        return new OnlinePayPage(driver);
+    public String getLogoMasterCardSecureCode(){
+        return driver.findElement(logoMasterCardSecureCode).getDomAttribute("alt");
     }
 
-    public OnlinePayPage getLogoBelcart(){
-        driver.findElement(logoBelcart).getDomAttribute("alt");
-        return new OnlinePayPage(driver);
+    public String getLogoBelcart(){
+        return driver.findElement(logoBelcart).getDomAttribute("alt");
     }
 
-    public LinkPage getLink(){
-        driver.findElement(link).getCurrentUrl();
-        return new LinkPage(driver);
+    public LinkPage clickLink(){
+         driver.findElement(link).click();
+         return new LinkPage(driver);
     }
 
     public OnlinePayPage clickCookies(){
         driver.findElement(cookies).click();
-        return new OnlinePayPage(driver);
+        return this;
+    }
+
+    public LinkPage linkText(){
+        this.clickCookies();
+        this.clickLink();
+        return new LinkPage(driver);
+
     }
 
     public OnlinePayPage typePhoneInput(String numberPhone){
@@ -106,133 +107,94 @@ public class OnlinePayPage{
         return new PagePay(driver);
     }
 
-    public OnlinePayPage getUslugiSvyazi(){
-        driver.findElement(uslugiSvyazi).getText();
-        return new OnlinePayPage(driver);
-    }
-
-    public OnlinePayPage getHomeInternet(){
-        driver.findElement(homeInternet).getText();
-        return new OnlinePayPage(driver);
-    }
-
-    public OnlinePayPage getRassrochka(){
-        driver.findElement(rassrochka).getText();
-        return new OnlinePayPage(driver);
-    }
-
-    public OnlinePayPage getDebt(){
-        driver.findElement(debt).getText();
-        return new OnlinePayPage(driver);
+    public PagePay oplataUslugi(String numberPhone,String summa){
+        this.clickCookies();
+        this.typePhoneInput(numberPhone);
+        this.typeSumInput(summa);
+        this.clickButtonContinue();
+        return new PagePay(driver);
     }
 
     public OnlinePayPage clickButtonTypesOfServices(){
         driver.findElement(buttonTypesOfServices).click();
-        return new OnlinePayPage(driver);
+        return this;
     }
 
     public OnlinePayPage clickButtonUslugiSvyazi(){
         driver.findElement(buttonUslugiSvyazi).click();
-        return new OnlinePayPage(driver);
+        return this;
     }
 
-    public OnlinePayPage getCountryCodeOfUslugiSvyazi(){
-        driver.findElement(countryCodeOfUslugiSvyazi).getText();
-        return new OnlinePayPage(driver);
+    public String getCountryCodeOfUslugiSvyazi(){
+        return driver.findElement(countryCodeOfUslugiSvyazi).getText();
     }
 
-    public OnlinePayPage getPlaceholderNumberPhoneOfUslugiSvyazi(){
-        driver.findElement(placeholderNumberPhoneOfUslugiSvyazi).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderNumberPhoneOfUslugiSvyazi(){
+        return driver.findElement(placeholderNumberPhoneOfUslugiSvyazi).getText();
+
     }
 
-    public OnlinePayPage getPlaceholderSummaOfUslugiSvyazi(){
-        driver.findElement(placeholderSummaOfUslugiSvyazi).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderSummaOfUslugiSvyazi(){
+        return driver.findElement(placeholderSummaOfUslugiSvyazi).getText();
     }
 
-    public OnlinePayPage getPlaceholderEmailOfUslugiSvyazi(){
-        driver.findElement(placeholderEmailOfUslugiSvyazi).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderEmailOfUslugiSvyazi(){
+        return driver.findElement(placeholderEmailOfUslugiSvyazi).getText();
     }
 
     public OnlinePayPage clickButtonHomeInternet(){
         driver.findElement(buttonHomeInternet).click();
-        return new OnlinePayPage(driver);
+        return this;
     }
 
-    public OnlinePayPage getCountryCodeOfHomeInternet(){
-        driver.findElement(countryCodeOfHomeInternet).getText();
-        return new OnlinePayPage(driver);
+    public String getCountryCodeOfHomeInternet(){
+        return driver.findElement(countryCodeOfHomeInternet).getText();
     }
 
-    public OnlinePayPage getPlaceholderNumberPhoneOfHomeInternet(){
-        driver.findElement(placeholderNumberPhoneOfHomeInternet).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderNumberPhoneOfHomeInternet(){
+        return driver.findElement(placeholderNumberPhoneOfHomeInternet).getText();
     }
 
-    public OnlinePayPage getPlaceholderSummaOfHomeInternet(){
-        driver.findElement(placeholderSummaOfHomeInternet).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderSummaOfHomeInternet(){
+        return driver.findElement(placeholderSummaOfHomeInternet).getText();
     }
 
-    public OnlinePayPage getPlaceholderEmailOfHomeInternet(){
-        driver.findElement(placeholderEmailOfHomeInternet).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderEmailOfHomeInternet(){
+        return driver.findElement(placeholderEmailOfHomeInternet).getText();
     }
 
     public OnlinePayPage clickButtonRassrochka(){
         driver.findElement(buttonRassrochka).click();
-        return new OnlinePayPage(driver);
+        return this;
     }
 
-    public OnlinePayPage getPlaceholderAccountNumberOfRassrochka(){
-        driver.findElement(placeholderAccountNumberOfRassrochka).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderAccountNumberOfRassrochka() {
+        return driver.findElement(placeholderAccountNumberOfRassrochka).getText();
     }
 
-    public OnlinePayPage getPlaceholderSummaOfRassrochka(){
-        driver.findElement(placeholderSummaOfRassrochka).getText();
-        return new OnlinePayPage(driver);
+
+    public String getPlaceholderSummaOfRassrochka(){
+        return driver.findElement(placeholderSummaOfRassrochka).getText();
     }
 
-    public OnlinePayPage getPlaceholderEmailOfRassrochka(){
-        driver.findElement(placeholderEmailOfRassrochka).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderEmailOfRassrochka(){
+        return driver.findElement(placeholderEmailOfRassrochka).getText();
     }
 
-    public OnlinePayPage clickDuttonDebt(){
+    public OnlinePayPage clickButtonDebt(){
         driver.findElement(buttonDebt).click();
-        return new OnlinePayPage(driver);
+        return this;
     }
 
-    public OnlinePayPage getPlaceholderAccountNumberOfDebt(){
-        driver.findElement(placeholderAccountNumberOfDebt).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderAccountNumberOfDebt(){
+        return driver.findElement(placeholderAccountNumberOfDebt).getText();
     }
 
-    public OnlinePayPage getPlaceholderSummaOfDebt(){
-        driver.findElement(placeholderSummaOfDebt).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderSummaOfDebt(){
+        return driver.findElement(placeholderSummaOfDebt).getText();
     }
 
-    public OnlinePayPage getPlaceholderEmailOfDebt(){
-        driver.findElement(placeholderEmailOfDebt).getText();
-        return new OnlinePayPage(driver);
+    public String getPlaceholderEmailOfDebt(){
+        return driver.findElement(placeholderEmailOfDebt).getText();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
