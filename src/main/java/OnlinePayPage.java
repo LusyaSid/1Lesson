@@ -23,7 +23,7 @@ public class OnlinePayPage{
     By homeInternet=By.xpath("//p[ text()='Домашний интернет']");
     By rassrochka=By.xpath("//p[ text()='Рассрочка']");
     By debt=By.xpath("//p[ text()='Задолженность']");
-    By buttonTypesOfServices=By.xpath("//div[@class='select__wrapper opened']//button");
+    By buttonTypesOfServices=By.xpath("//*[@id='pay-section']//div[@class='select__wrapper']//button");
     By countryCodeOfUslugiSvyazi=By.xpath("//div[@class='input-wrapper input-wrapper_label-left']//label");
     By placeholderNumberPhoneOfUslugiSvyazi=By.xpath("//*[@id='connection-phone']");
     By placeholderSummaOfUslugiSvyazi=By.xpath("//*[@id='connection-sum']");
@@ -86,7 +86,7 @@ public class OnlinePayPage{
     }
 
     public LinkPage linkText(){
-        this.clickCookies();
+
         this.clickLink();
         return new LinkPage(driver);
 
@@ -108,7 +108,7 @@ public class OnlinePayPage{
     }
 
     public PagePay oplataUslugi(String numberPhone,String summa){
-        this.clickCookies();
+
         this.typePhoneInput(numberPhone);
         this.typeSumInput(summa);
         this.clickButtonContinue();
@@ -142,6 +142,16 @@ public class OnlinePayPage{
         return driver.findElement(placeholderEmailOfUslugiSvyazi).getText();
     }
 
+    public OnlinePayPage paymentUslugiSvyazi(){
+        this.clickButtonTypesOfServices();
+        this.clickButtonUslugiSvyazi();
+        this.getCountryCodeOfUslugiSvyazi();
+        this.getPlaceholderNumberPhoneOfUslugiSvyazi();
+        this.getPlaceholderSummaOfUslugiSvyazi();
+        this.getPlaceholderEmailOfUslugiSvyazi();
+        return new OnlinePayPage(driver);
+    }
+
     public OnlinePayPage clickButtonHomeInternet(){
         driver.findElement(buttonHomeInternet).click();
         return this;
@@ -163,6 +173,16 @@ public class OnlinePayPage{
         return driver.findElement(placeholderEmailOfHomeInternet).getText();
     }
 
+    public OnlinePayPage paymentHomeInternet(){
+        this.clickButtonTypesOfServices();
+        this.clickButtonHomeInternet();
+        this.getCountryCodeOfHomeInternet();
+        this.getPlaceholderNumberPhoneOfHomeInternet();
+        this.getPlaceholderSummaOfHomeInternet();
+        this.getPlaceholderEmailOfHomeInternet();
+        return new OnlinePayPage(driver);
+    }
+
     public OnlinePayPage clickButtonRassrochka(){
         driver.findElement(buttonRassrochka).click();
         return this;
@@ -181,6 +201,15 @@ public class OnlinePayPage{
         return driver.findElement(placeholderEmailOfRassrochka).getText();
     }
 
+    public OnlinePayPage paymentRassrochka(){
+        this.clickButtonTypesOfServices();
+        this.clickButtonRassrochka();
+        this.getPlaceholderAccountNumberOfRassrochka();
+        this.getPlaceholderSummaOfRassrochka();
+        this.getPlaceholderEmailOfRassrochka();
+        return new OnlinePayPage(driver);
+    }
+
     public OnlinePayPage clickButtonDebt(){
         driver.findElement(buttonDebt).click();
         return this;
@@ -196,5 +225,14 @@ public class OnlinePayPage{
 
     public String getPlaceholderEmailOfDebt(){
         return driver.findElement(placeholderEmailOfDebt).getText();
+    }
+
+    public OnlinePayPage paymentDebt(){
+        this.clickButtonTypesOfServices();
+        this.clickButtonDebt();
+        this.getPlaceholderAccountNumberOfDebt();
+        this.getPlaceholderSummaOfDebt();
+        this.getPlaceholderEmailOfDebt();
+        return new OnlinePayPage(driver);
     }
 }
