@@ -28,7 +28,7 @@ public class OnlinePayPage{
     By placeholderNumberPhoneOfUslugiSvyazi=By.xpath("//*[@id='connection-phone']");
     By placeholderSummaOfUslugiSvyazi=By.xpath("//*[@id='connection-sum']");
     By placeholderEmailOfUslugiSvyazi=By.xpath("//*[@id='connection-email']");
-    By buttonSelectedNow=By.xpath("//button[@class='select__header']//span[@class='select__now']");
+    By buttonSelectedNow=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button");
     By countryCodeOfHomeInternet=By.xpath("//*[@id=pay-internet']/div[1]/label");
     By placeholderNumberPhoneOfHomeInternet=By.xpath("//*[@id='internet-phone']");
     By placeholderSummaOfHomeInternet=By.xpath("//*[@id='internet-sum']");
@@ -39,6 +39,11 @@ public class OnlinePayPage{
     By placeholderAccountNumberOfDebt=By.xpath("//*[@id='score-arrears']");
     By placeholderSummaOfDebt=By.xpath("//*[@id='arrears-sum']");
     By placeholderEmailOfDebt=By.xpath("//*[@id='arrears-email']");
+    By buttonUslugiSvyazi=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[1]/p");
+    By buttonHomeInternet=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[2]/p");
+    By buttonRassrochka=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[3]/p");
+    By buttonDebt=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[4]/p");
+
 
 
 
@@ -120,6 +125,113 @@ public class OnlinePayPage{
         driver.findElement(debt).getText();
         return new OnlinePayPage(driver);
     }
+
+    public OnlinePayPage clickButtonTypesOfServices(){
+        driver.findElement(buttonTypesOfServices).click();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage clickButtonUslugiSvyazi(){
+        driver.findElement(buttonUslugiSvyazi).click();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getCountryCodeOfUslugiSvyazi(){
+        driver.findElement(countryCodeOfUslugiSvyazi).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderNumberPhoneOfUslugiSvyazi(){
+        driver.findElement(placeholderNumberPhoneOfUslugiSvyazi).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderSummaOfUslugiSvyazi(){
+        driver.findElement(placeholderSummaOfUslugiSvyazi).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderEmailOfUslugiSvyazi(){
+        driver.findElement(placeholderEmailOfUslugiSvyazi).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage clickButtonHomeInternet(){
+        driver.findElement(buttonHomeInternet).click();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getCountryCodeOfHomeInternet(){
+        driver.findElement(countryCodeOfHomeInternet).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderNumberPhoneOfHomeInternet(){
+        driver.findElement(placeholderNumberPhoneOfHomeInternet).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderSummaOfHomeInternet(){
+        driver.findElement(placeholderSummaOfHomeInternet).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderEmailOfHomeInternet(){
+        driver.findElement(placeholderEmailOfHomeInternet).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage clickButtonRassrochka(){
+        driver.findElement(buttonRassrochka).click();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderAccountNumberOfRassrochka(){
+        driver.findElement(placeholderAccountNumberOfRassrochka).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderSummaOfRassrochka(){
+        driver.findElement(placeholderSummaOfRassrochka).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderEmailOfRassrochka(){
+        driver.findElement(placeholderEmailOfRassrochka).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage clickDuttonDebt(){
+        driver.findElement(buttonDebt).click();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderAccountNumberOfDebt(){
+        driver.findElement(placeholderAccountNumberOfDebt).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderSummaOfDebt(){
+        driver.findElement(placeholderSummaOfDebt).getText();
+        return new OnlinePayPage(driver);
+    }
+
+    public OnlinePayPage getPlaceholderEmailOfDebt(){
+        driver.findElement(placeholderEmailOfDebt).getText();
+        return new OnlinePayPage(driver);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
