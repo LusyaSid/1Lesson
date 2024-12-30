@@ -15,11 +15,15 @@ public class Main {
         driver.get("http://www.google.com");
 
         OnlinePayPage onlinePayPage=new OnlinePayPage(driver);
+        PagePay pagePay=new PagePay(driver);
+        driver.getPageSource();
         onlinePayPage.open();
 
         onlinePayPage.clickCookies();
+        onlinePayPage.oplataUslugi("297777777","34");
+        pagePay.getSumPay();
 
-       onlinePayPage.paymentHomeInternet();
+
 
 
 

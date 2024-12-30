@@ -1,5 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static java.awt.SystemColor.text;
 
 public class PagePay {
     protected WebDriver driver;
@@ -8,7 +15,8 @@ public class PagePay {
         this.driver=driver;
     }
 
-    By sumPay=By.xpath("/html/body/app-root/div/div/div/app-payment-container/section/div/div/div[1]/span[1]");
+
+    By sumPay=By.xpath("//div[@class='pay-description__cost']//span[contains(text(), 'BYN')]");
     By numberPhone=By.xpath("/html/body/app-root/div/div/div/app-payment-container/section/div/div/div[2]/span");
     By buttonPay=By.xpath("//div[@class='card-page__card']//button[@type='submit']/text()");
     By numberCard=By.xpath("//div[@class='content ng-tns-c46-1']//label");
@@ -21,11 +29,20 @@ public class PagePay {
     By logoCardMir=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[@src='assets/images/payment-icons/card-types/mir-system-ru.svg']");
 
     public String getSumPay(){
-        return driver.findElement(sumPay).getText();
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text = driver.findElement(sumPay).getText();
+        driver.switchTo().defaultContent();
+        return  text;
     }
 
     public String getNumberPhone(){
-        return driver.findElement(numberPhone).getText();
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text =driver.findElement(numberPhone).getText();
+        return text;
+        driver.switchTo().defaultContent();
+
     }
 
     public boolean getButtonPay(){
