@@ -17,18 +17,13 @@ public class OnlinePayPage{
     By link=By.xpath("//div[@class='pay__wrapper']//a");
     By buttonContinue=By.xpath("//*[@id='pay-connection']/button");
     By cookies=By.xpath("//*[@id='cookie-agree']");
-     By phoneInput=By.xpath("//*[@id='connection-phone']");
+    By phoneInput=By.xpath("//*[@id='connection-phone']");
     By sumInput=By.xpath("//*[@id='connection-sum']");
-    By uslugiSvyazi=By.xpath("//p[ text()='Услуги связи']");
-    By homeInternet=By.xpath("//p[ text()='Домашний интернет']");
-    By rassrochka=By.xpath("//p[ text()='Рассрочка']");
-    By debt=By.xpath("//p[ text()='Задолженность']");
     By buttonTypesOfServices=By.xpath("//*[@id='pay-section']//div[@class='select__wrapper']//button");
     By countryCodeOfUslugiSvyazi=By.xpath("//div[@class='input-wrapper input-wrapper_label-left']//label");
     By placeholderNumberPhoneOfUslugiSvyazi=By.xpath("//*[@id='connection-phone']");
     By placeholderSummaOfUslugiSvyazi=By.xpath("//*[@id='connection-sum']");
     By placeholderEmailOfUslugiSvyazi=By.xpath("//*[@id='connection-email']");
-    By buttonSelectedNow=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button");
     By countryCodeOfHomeInternet=By.xpath("//*[@id='pay-internet']/div[1]/label");
     By placeholderNumberPhoneOfHomeInternet=By.xpath("//*[@id='internet-phone']");
     By placeholderSummaOfHomeInternet=By.xpath("//*[@id='internet-sum']");
@@ -43,8 +38,6 @@ public class OnlinePayPage{
     By buttonHomeInternet=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[2]/p");
     By buttonRassrochka=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[3]/p");
     By buttonDebt=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[4]/p");
-
-
 
 
     public void open(){
@@ -80,7 +73,6 @@ public class OnlinePayPage{
          return new LinkPage(driver);
     }
 
-
     public void clickCookies(){
         driver.findElement(cookies).click();
     }
@@ -101,7 +93,6 @@ public class OnlinePayPage{
     }
 
     public PagePay oplataUslugi(String numberPhone,String summa){
-
         this.typePhoneInput(numberPhone);
         this.typeSumInput(summa);
         this.clickButtonContinue();

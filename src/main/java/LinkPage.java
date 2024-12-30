@@ -9,10 +9,6 @@ public class LinkPage {
         this.driver=driver;
     }
 
-    By link=By.xpath("//div[@class='pay__wrapper']//a");
 
-    public LinkPage getLinkText(){
-        driver.findElement(link).getText();
-        return new LinkPage(driver);
-    }
+
 }

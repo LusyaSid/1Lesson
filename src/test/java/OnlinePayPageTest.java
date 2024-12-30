@@ -1,14 +1,12 @@
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
-import static java.awt.SystemColor.text;
+
 
 public class OnlinePayPageTest {
     private WebDriver driver;
@@ -19,6 +17,7 @@ public class OnlinePayPageTest {
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get("https://www.mts.by/");
         onlinePayPage=new OnlinePayPage(driver);
         onlinePayPage.clickCookies();
@@ -67,42 +66,33 @@ public class OnlinePayPageTest {
 
     @Test
     public void linkText(){
-
         LinkPage linkPage=onlinePayPage.clickLink();
         String currentUrl= driver.getCurrentUrl();
         Assert.assertEquals("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/",currentUrl);
-
     }
 
     @Test
     public void buttonContinue(){
-
         onlinePayPage.oplataUslugi("297777777","34");
     }
 
     @Test
     public void paymentUslugiSvyazi(){
-
         onlinePayPage.paymentUslugiSvyazi();
     }
 
     @Test
     public void paymentHomeInternet(){
-
         onlinePayPage.paymentHomeInternet();
     }
 
     @Test
     public void paymentRassrochka(){
-
         onlinePayPage.paymentRassrochka();
     }
 
     @Test
     public void paymentDebt(){
-
         onlinePayPage.paymentDebt();
     }
-
-
 }
