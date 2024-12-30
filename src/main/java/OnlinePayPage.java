@@ -29,7 +29,7 @@ public class OnlinePayPage{
     By placeholderSummaOfUslugiSvyazi=By.xpath("//*[@id='connection-sum']");
     By placeholderEmailOfUslugiSvyazi=By.xpath("//*[@id='connection-email']");
     By buttonSelectedNow=By.xpath("//*[@id='pay-section']/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button");
-    By countryCodeOfHomeInternet=By.xpath("//*[@id=pay-internet']/div[1]/label");
+    By countryCodeOfHomeInternet=By.xpath("//*[@id='pay-internet']/div[1]/label");
     By placeholderNumberPhoneOfHomeInternet=By.xpath("//*[@id='internet-phone']");
     By placeholderSummaOfHomeInternet=By.xpath("//*[@id='internet-sum']");
     By placeholderEmailOfHomeInternet=By.xpath("//*[@id='internet-email']");
@@ -80,16 +80,9 @@ public class OnlinePayPage{
          return new LinkPage(driver);
     }
 
-    public OnlinePayPage clickCookies(){
+
+    public void clickCookies(){
         driver.findElement(cookies).click();
-        return this;
-    }
-
-    public LinkPage linkText(){
-
-        this.clickLink();
-        return new LinkPage(driver);
-
     }
 
     public OnlinePayPage typePhoneInput(String numberPhone){

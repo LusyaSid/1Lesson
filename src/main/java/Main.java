@@ -18,8 +18,8 @@ public class Main {
         onlinePayPage.open();
 
         onlinePayPage.clickCookies();
-       onlinePayPage.paymentUslugiSvyazi();
-       onlinePayPage.paymentRassrochka();
+
+       onlinePayPage.paymentHomeInternet();
 
 
 
