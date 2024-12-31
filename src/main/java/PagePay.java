@@ -1,32 +1,31 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
-import static java.awt.SystemColor.text;
-
 public class PagePay {
-    protected WebDriver driver;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     public PagePay(WebDriver driver){
         this.driver=driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
 
     By sumPay=By.xpath("//div[@class='pay-description__cost']//span[contains(text(), 'BYN')]");
     By numberPhone=By.xpath("/html/body/app-root/div/div/div/app-payment-container/section/div/div/div[2]/span");
     By buttonPay=By.xpath("//div[@class='card-page__card']//button[@type='submit']/text()");
-    By numberCard=By.xpath("//div[@class='content ng-tns-c46-1']//label");
+    By numberCard=By.xpath("//app-input[@class='full-width ng-tns-c61-0 ng-tns-c46-1 ng-star-inserted']/div/div/div[1]/label");
     By validityPeriod=By.xpath("//div[@class='content ng-tns-c46-4']//label");
     By cvc=By.xpath("//div[@class='content ng-tns-c46-5']//label");
-    By holderCard=By.xpath("//div[@class='content ng-tns-c46-3']//label");
-    By logoVisa1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[@src='assets/images/payment-icons/card-types/visa-system.svg']");
-    By logoMasterCard1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[@src='assets/images/payment-icons/card-types/mastercard-system.svg']");
-    By logoBelcart1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[@src='assets/images/payment-icons/card-types/belkart-system.svg']");
-    By logoCardMir=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[@src='assets/images/payment-icons/card-types/mir-system-ru.svg']");
+    By holderCard=By.xpath("full-width ng-tns-c61-0 ng-tns-c46-3 ng-star-inserted");
+    By logoVisa1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img");
+    By logoMasterCard1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[2]");
+    By logoBelcart1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[3]");
+    By logoCardMir=By.xpath("//div[@class='cards-brands cards-brands_random ng-tns-c61-0 ng-star-inserted']//img[2]");
+
 
     public String getSumPay(){
         WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
@@ -40,47 +39,84 @@ public class PagePay {
         WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
         driver.switchTo().frame(frameElement);
         String text =driver.findElement(numberPhone).getText();
-        return text;
         driver.switchTo().defaultContent();
-
+        return text;
     }
 
-    public boolean getButtonPay(){
-        return driver.findElement(buttonPay).isDisplayed();
+    public String getButtonPay(){
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+       String text=driver.findElement(buttonPay).getText();
+        driver.switchTo().defaultContent();
+        return text;
     }
 
     public String getNumberCard(){
-        return driver.findElement(numberCard).getText();
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text=driver.findElement(numberCard).getText();
+        driver.switchTo().defaultContent();
+         return text;
     }
 
     public String getValidityPeriod(){
-        return driver.findElement(validityPeriod).getText();
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text=driver.findElement(validityPeriod).getText();
+        driver.switchTo().defaultContent();
+        return text;
     }
 
     public String getCvc(){
-        return driver.findElement(cvc).getText();
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text=driver.findElement(cvc).getText();
+        driver.switchTo().defaultContent();
+        return text;
     }
 
     public String getHolderCard(){
-        return driver.findElement(holderCard).getText();
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text=driver.findElement(holderCard).getText();
+        driver.switchTo().defaultContent();
+        return text;
     }
 
     public String getLogoVisa1(){
-        return driver.findElement(logoVisa1).getDomAttribute("src");
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text= driver.findElement(logoVisa1).getDomAttribute("src");
+        driver.switchTo().defaultContent();
+        return text;
     }
 
     public String getLogoMasterCard1(){
-        return driver.findElement(logoMasterCard1).getDomAttribute("src");
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text=driver.findElement(logoMasterCard1).getDomAttribute("src");
+        driver.switchTo().defaultContent();
+        return text;
     }
 
     public String getLogoBelcart1(){
-        return driver.findElement(logoBelcart1).getDomAttribute("src");
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text=driver.findElement(logoBelcart1).getDomAttribute("src");
+        driver.switchTo().defaultContent();
+        return text;
 
     }
 
     public String getLogoCardMir(){
-        return driver.findElement(logoCardMir).getDomAttribute("src");
+        WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
+        driver.switchTo().frame(frameElement);
+        String text=driver.findElement(logoCardMir).getDomAttribute("src");
+        driver.switchTo().defaultContent();
+        return text;
     }
+
+
 }
 
 

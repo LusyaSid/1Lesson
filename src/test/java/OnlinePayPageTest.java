@@ -29,70 +29,70 @@ public class OnlinePayPageTest {
     }
 
     @Test
-    public void blockName(){
+    public void blockNameTest(){
        String text=onlinePayPage.getNameBlock();
        Assert.assertEquals("Онлайн пополнение\n" + "без комиссии",text);
     }
 
     @Test
-    public void logoVisa(){
+    public void logoVisaTest(){
        String logo=onlinePayPage.getLogoVisa();
         Assert.assertEquals("Visa",logo);
     }
 
     @Test
-    public void logoVerifiedByVisa(){
+    public void logoVerifiedByVisaTest(){
         String logo=onlinePayPage.getLogoVerifiedByVisa();
         Assert.assertEquals("Verified By Visa",logo);
     }
 
     @Test
-    public void logoMasterCard(){
+    public void logoMasterCardTest(){
         String logo=onlinePayPage.getLogoMasterCard();
         Assert.assertEquals("MasterCard",logo);
     }
 
     @Test
-    public void logoMasterCardSecureCode(){
+    public void logoMasterCardSecureCodeTest(){
         String logo=onlinePayPage.getLogoMasterCardSecureCode();
         Assert.assertEquals("MasterCard Secure Code",logo);
     }
 
     @Test
-    public void logoBelcart(){
+    public void logoBelcartTest(){
         String logo=onlinePayPage.getLogoBelcart();
         Assert.assertEquals("Белкарт",logo);
     }
 
     @Test
-    public void linkText(){
+    public void linkTextTest(){
         LinkPage linkPage=onlinePayPage.clickLink();
         String currentUrl= driver.getCurrentUrl();
         Assert.assertEquals("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/",currentUrl);
     }
 
     @Test
-    public void buttonContinue(){
+    public void buttonContinueTest(){
         onlinePayPage.oplataUslugi("297777777","34");
     }
 
     @Test
-    public void paymentUslugiSvyazi(){
+    public void paymentUslugiSvyaziTest(){
         onlinePayPage.paymentUslugiSvyazi();
     }
 
     @Test
-    public void paymentHomeInternet(){
+    public void paymentHomeInternetTest(){
         onlinePayPage.paymentHomeInternet();
     }
 
     @Test
-    public void paymentRassrochka(){
+    public void paymentRassrochkaTest(){
         onlinePayPage.paymentRassrochka();
     }
 
     @Test
-    public void paymentDebt(){
+    public void paymentDebtTest(){
         onlinePayPage.paymentDebt();
     }
 }
