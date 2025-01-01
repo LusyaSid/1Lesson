@@ -15,12 +15,12 @@ public class PagePay {
 
 
     By sumPay=By.xpath("//div[@class='pay-description__cost']//span[contains(text(), 'BYN')]");
-    By numberPhone=By.xpath("/html/body/app-root/div/div/div/app-payment-container/section/div/div/div[2]/span");
+    By numberPhone=By.xpath("//div[@class='pay-description__text']//span");
     By buttonPay=By.xpath("//div[@class='card-page__card']//button[@type='submit']/text()");
     By numberCard=By.xpath("//app-input[@class='full-width ng-tns-c61-0 ng-tns-c46-1 ng-star-inserted']/div/div/div[1]/label");
     By validityPeriod=By.xpath("//div[@class='content ng-tns-c46-4']//label");
     By cvc=By.xpath("//div[@class='content ng-tns-c46-5']//label");
-    By holderCard=By.xpath("full-width ng-tns-c61-0 ng-tns-c46-3 ng-star-inserted");
+    By holderCard=By.xpath("//app-input[@class='full-width ng-tns-c61-0 ng-tns-c46-3 ng-star-inserted']//label");
     By logoVisa1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img");
     By logoMasterCard1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[2]");
     By logoBelcart1=By.xpath("//div[@class='cards-brands ng-tns-c46-1']//img[3]");
@@ -38,9 +38,9 @@ public class PagePay {
     public String getNumberPhone(){
         WebElement frameElement=driver.findElement(By.xpath("//div[@class='bepaid-app']//iframe"));
         driver.switchTo().frame(frameElement);
-        String text =driver.findElement(numberPhone).getText();
+        String text = driver.findElement(numberPhone).getText();
         driver.switchTo().defaultContent();
-        return text;
+        return  text;
     }
 
     public String getButtonPay(){

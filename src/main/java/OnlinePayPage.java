@@ -95,7 +95,6 @@ public class OnlinePayPage{
     public PagePay oplataUslugi(String numberPhone,String summa){
         this.typePhoneInput(numberPhone);
         this.typeSumInput(summa);
-
         return this.clickButtonContinue();
     }
 
