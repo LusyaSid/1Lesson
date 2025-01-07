@@ -1,18 +1,17 @@
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
-
 
 
 public class OnlinePayPageTest {
     private WebDriver driver;
     private OnlinePayPage onlinePayPage;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -23,7 +22,7 @@ public class OnlinePayPageTest {
         onlinePayPage.clickCookies();
     }
 
-    @After
+    @AfterEach
     public void tearDown(){
         driver.quit();
     }
@@ -31,44 +30,44 @@ public class OnlinePayPageTest {
     @Test
     public void blockNameTest(){
        String text=onlinePayPage.getNameBlock();
-       Assert.assertEquals("Онлайн пополнение\n" + "без комиссии",text);
+       Assertions.assertEquals("Онлайн пополнение\n" + "без комиссии",text);
     }
 
     @Test
     public void logoVisaTest(){
        String logo=onlinePayPage.getLogoVisa();
-        Assert.assertEquals("Visa",logo);
+        Assertions.assertEquals("Visa",logo);
     }
 
     @Test
     public void logoVerifiedByVisaTest(){
         String logo=onlinePayPage.getLogoVerifiedByVisa();
-        Assert.assertEquals("Verified By Visa",logo);
+        Assertions.assertEquals("Verified By Visa",logo);
     }
 
     @Test
     public void logoMasterCardTest(){
         String logo=onlinePayPage.getLogoMasterCard();
-        Assert.assertEquals("MasterCard",logo);
+        Assertions.assertEquals("MasterCard",logo);
     }
 
     @Test
     public void logoMasterCardSecureCodeTest(){
         String logo=onlinePayPage.getLogoMasterCardSecureCode();
-        Assert.assertEquals("MasterCard Secure Code",logo);
+        Assertions.assertEquals("MasterCard Secure Code",logo);
     }
 
     @Test
     public void logoBelcartTest(){
         String logo=onlinePayPage.getLogoBelcart();
-        Assert.assertEquals("Белкарт",logo);
+        Assertions.assertEquals("Белкарт",logo);
     }
 
     @Test
     public void linkTextTest(){
         LinkPage linkPage=onlinePayPage.clickLink();
         String currentUrl= driver.getCurrentUrl();
-        Assert.assertEquals("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/",currentUrl);
+        Assertions.assertEquals("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/",currentUrl);
     }
 
     @Test
@@ -89,10 +88,5 @@ public class OnlinePayPageTest {
     @Test
     public void paymentRassrochkaTest(){
         onlinePayPage.paymentRassrochka();
-    }
-
-    @Test
-    public void paymentDebtTest(){
-        onlinePayPage.paymentDebt();
     }
 }

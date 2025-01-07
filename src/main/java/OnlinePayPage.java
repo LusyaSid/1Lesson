@@ -1,5 +1,9 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class OnlinePayPage{
     protected WebDriver driver;
@@ -74,7 +78,13 @@ public class OnlinePayPage{
     }
 
     public void clickCookies(){
-        driver.findElement(cookies).click();
+        try {
+            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(cookies)).click();
+        } catch (TimeoutException e){
+            System.out.println("Элемент не доступен");
+        }
+
     }
 
     public OnlinePayPage typePhoneInput(String numberPhone){
