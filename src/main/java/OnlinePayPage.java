@@ -52,24 +52,8 @@ public class OnlinePayPage{
         return driver.findElement(nameBlock).getText();
     }
 
-    public String getLogoVisa(){
-        return driver.findElement(logoVisa).getDomAttribute("alt");
-    }
-
-    public String getLogoVerifiedByVisa(){
-        return driver.findElement(logoVerifiedByVisa).getDomAttribute("alt");
-    }
-
-    public String getLogoMasterCard(){
-        return driver.findElement(logoMasterCard).getDomAttribute("alt");
-    }
-
-    public String getLogoMasterCardSecureCode(){
-        return driver.findElement(logoMasterCardSecureCode).getDomAttribute("alt");
-    }
-
-    public String getLogoBelcart(){
-        return driver.findElement(logoBelcart).getDomAttribute("alt");
+    public String getLogoSrc(By logo){
+        return driver.findElement(logo).getAttribute("src");
     }
 
     public LinkPage clickLink(){
@@ -84,7 +68,6 @@ public class OnlinePayPage{
         } catch (TimeoutException e){
             System.out.println("Элемент не доступен");
         }
-
     }
 
     public OnlinePayPage typePhoneInput(String numberPhone){
@@ -105,7 +88,8 @@ public class OnlinePayPage{
     public PagePay oplataUslugi(String numberPhone,String summa){
         this.typePhoneInput(numberPhone);
         this.typeSumInput(summa);
-        return this.clickButtonContinue();
+         this.clickButtonContinue();
+         return new PagePay(driver);
     }
 
     public OnlinePayPage clickButtonTypesOfServices(){
@@ -124,7 +108,6 @@ public class OnlinePayPage{
 
     public String getPlaceholderNumberPhoneOfUslugiSvyazi(){
         return driver.findElement(placeholderNumberPhoneOfUslugiSvyazi).getText();
-
     }
 
     public String getPlaceholderSummaOfUslugiSvyazi(){

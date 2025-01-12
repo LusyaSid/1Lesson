@@ -91,33 +91,11 @@ public class PagePay {
         return text;
     }
 
-    public String getLogoVisa1(){
+    public String getLogoSrc(By logo){
         switchToIframe();
-        String text= driver.findElement(logoVisa1).getDomAttribute("src");
+        String src=driver.findElement(logo).getAttribute("src");
         switchToDefaultContent();
-        return text;
-    }
-
-    public String getLogoMasterCard1(){
-        switchToIframe();
-        String text=driver.findElement(logoMasterCard1).getDomAttribute("src");
-        switchToDefaultContent();
-        return text;
-    }
-
-    public String getLogoBelcart1(){
-        switchToIframe();
-        String text=driver.findElement(logoBelcart1).getDomAttribute("src");
-        switchToDefaultContent();
-        return text;
-
-    }
-
-    public String getLogoCardMir(){
-        switchToIframe();
-        String text=driver.findElement(logoCardMir).getDomAttribute("src");
-        switchToDefaultContent();
-        return text;
+        return src;
     }
 }
 

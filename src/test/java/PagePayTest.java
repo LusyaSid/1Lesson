@@ -2,6 +2,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +19,7 @@ public class PagePayTest {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -81,31 +84,34 @@ public class PagePayTest {
         Assertions.assertEquals("Имя держателя (как на карте)",text);
     }
 
-    @Test
-    public void logoVisaTest(){
+    @ParameterizedTest
+    @CsvSource({
+            "visa-system.svg,logoVisa1",
+            "belkart-system.svg,logoBelcart1",
+            "mastercard-system.svg,logoMasterCard1",
+            "mir-system-ru.svg,logoCardMir"
+    })
+    public void logoTest(String expectedLogo,String logoVariable){
         onlinePayPage.oplataUslugi("297777777","34");
-        String logo=pagePay.getLogoVisa1();
-        Assertions.assertEquals("assets/images/payment-icons/card-types/visa-system.svg",logo);
-    }
 
-    @Test
-    public void LogoBelcart1Test(){
-        onlinePayPage.oplataUslugi("297777777","34");
-        String logo=pagePay.getLogoBelcart1();
-        Assertions.assertEquals("assets/images/payment-icons/card-types/belkart-system.svg",logo);
-    }
-
-    @Test
-    public void LogoMasterCard1Test(){
-        onlinePayPage.oplataUslugi("297777777","34");
-        String logo=pagePay.getLogoMasterCard1();
-        Assertions.assertEquals("assets/images/payment-icons/card-types/mastercard-system.svg",logo);
-    }
-
-    @Test
-    public void LogoCardMirTest(){
-        onlinePayPage.oplataUslugi("297777777","34");
-        String logo=pagePay.getLogoCardMir();
-        Assertions.assertEquals("assets/images/payment-icons/card-types/mir-system-ru.svg",logo);
+        By logoLocator;
+        switch (logoVariable){
+            case "logoVisa1":
+                logoLocator=pagePay.logoVisa1;
+                break;
+            case "logoBelcart1":
+                logoLocator=pagePay.logoBelcart1;
+                break;
+            case "logoMasterCard1":
+                logoLocator=pagePay.logoMasterCard1;
+                break;
+            case "logoCardMir":
+                logoLocator=pagePay.logoCardMir;
+                break;
+            default:
+                throw new IllegalArgumentException("Неизвестная переменная:" + logoVariable);
+        }
+        String logoSrc=pagePay.getLogoSrc(logoLocator);
+        Assertions.assertEquals("https://checkout.bepaid.by/widget_v2/assets/images/payment-icons/card-types/" + expectedLogo, logoSrc);
     }
 }
