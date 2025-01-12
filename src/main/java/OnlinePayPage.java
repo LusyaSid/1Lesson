@@ -1,5 +1,10 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class OnlinePayPage{
     protected WebDriver driver;
@@ -47,7 +52,7 @@ public class OnlinePayPage{
     public String getNameBlock(){
         return driver.findElement(nameBlock).getText();
     }
-
+    /*
     public String getLogoVisa(){
         return driver.findElement(logoVisa).getDomAttribute("alt");
     }
@@ -66,6 +71,10 @@ public class OnlinePayPage{
 
     public String getLogoBelcart(){
         return driver.findElement(logoBelcart).getDomAttribute("alt");
+    }*/
+
+    public String getLogoSrc(By logo){
+        return driver.findElement(logo).getAttribute("src");
     }
 
     public LinkPage clickLink(){
@@ -74,7 +83,12 @@ public class OnlinePayPage{
     }
 
     public void clickCookies(){
-        driver.findElement(cookies).click();
+        try {
+            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(cookies)).click();
+        } catch (TimeoutException e){
+            System.out.println("Элемент не доступен");
+        }
     }
 
     public OnlinePayPage typePhoneInput(String numberPhone){
@@ -95,7 +109,8 @@ public class OnlinePayPage{
     public PagePay oplataUslugi(String numberPhone,String summa){
         this.typePhoneInput(numberPhone);
         this.typeSumInput(summa);
-        return this.clickButtonContinue();
+         this.clickButtonContinue();
+         return new PagePay(driver);
     }
 
     public OnlinePayPage clickButtonTypesOfServices(){
